@@ -4,7 +4,7 @@ public class Policy {
     private String holderFirstName;
     private String holderLastName;
     private int holderAge;
-    private boolean holderSmokingStatus;
+    private String holderSmokingStatus;
     private double holderHeight;
     private double holderWeight;
 
@@ -15,7 +15,7 @@ public class Policy {
         String firstName = holderFirstName;
         String lastName = holderLastName;
         int age = holderAge;
-        boolean smokerStatus = holderSmokingStatus;
+        String smokerStatus = holderSmokingStatus;
         double height = holderHeight;
         double weight = holderWeight;
     }
@@ -60,12 +60,12 @@ public class Policy {
     public void setHolderAge(int holderAge) {
         this.holderAge = holderAge;
     }
-
-    public boolean isHolderSmokingStatus() {
+    
+    public String getHolderSmokingStatus() {
         return holderSmokingStatus;
     }
 
-    public void setHolderSmokingStatus(boolean holderSmokingStatus) {
+    public void setHolderSmokingStatus(String holderSmokingStatus) {
         this.holderSmokingStatus = holderSmokingStatus;
     }
 
@@ -111,7 +111,7 @@ public class Policy {
             cost += 75; //Additional Fee for Seniors
         }
 
-        if (isHolderSmokingStatus()) {
+        if (getHolderSmokingStatus().equalsIgnoreCase("smoker")) {
             cost += 100; //Additional Fee for Smokers
         }
 
@@ -120,6 +120,23 @@ public class Policy {
         }
 
         return cost;
+    }
+
+
+    public void displayInformation() {
+        //Prints all data
+        System.out.println();
+        System.out.println("Policy Number: " + getPolicyNumber());
+        System.out.println("Provider Name: " + getProviderName());
+        System.out.println("Policyholders First Name: " + getHolderFirstName());
+        System.out.println("Policyholders Last Name: " + getHolderLastName());
+        System.out.println("Policyholders Age: " + getHolderAge());
+        System.out.println("Policyholders Smoking Status: " + getHolderSmokingStatus());
+        System.out.println("Policyholders Height: " + getHolderHeight());
+        System.out.println("Policyholders Weight: " + getHolderWeight());
+        System.out.printf("Policyholders BMI: %.2f\n", bmi(getHolderHeight(), getHolderWeight()));
+        System.out.printf("Policy Price: %.2f", calcPrice());
+
     }
 
 }
