@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Demo {
+public class Project_Dola_Y {
 
     public static void main(String[] args) {
       //Variables
@@ -30,7 +30,7 @@ public class Demo {
 //      newPolicy.setHolderFirstName("John");
 //      newPolicy.setHolderLastName("Doe");
 //      newPolicy.setHolderAge(24);
-//      newPolicy.setHolderSmokingStatus(false);
+//      newPolicy.setHolderSmokingStatus(non-smoker);
 //      newPolicy.setHolderHeight(62.0);
 //      newPolicy.setHolderWeight(250.5);
       
