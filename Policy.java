@@ -21,7 +21,10 @@ public class Policy {
     }
 
     //Getters and Setters
-    //* References the policy number*/
+    /**
+     * Retrieves the holder's policy number
+     * @return the Policy Number as an integer
+     */
     public int getPolicyNumber() {
         return policyNumber;
     }
