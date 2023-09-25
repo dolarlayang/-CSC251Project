@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+/* Demonstrates the Policy.java file in use */
+
 public class Project_Dola_Y {
 
     public static void main(String[] args) {
