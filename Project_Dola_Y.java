@@ -86,12 +86,15 @@ public class Project_Dola_Y {
    String smokerStatus;
    double height;
    double weight;
+   
+   int totalNonSmokers = 0, 
+      totalSmokers = 0;
 
    ArrayList<Policy> listOfPolicies = new ArrayList<>(); //Stores policy objects
 
    File policyInfo = new File("PolicyInformation.txt");
    Scanner inputFile = new Scanner(policyInfo);
-   
+
    while (inputFile.hasNext()) {
       String line = inputFile.nextLine(); //Declare and assign line value to policy number
       polNum = Integer.parseInt(line);
@@ -118,7 +121,14 @@ public class Project_Dola_Y {
       }
 
       //Create object
-      Policy newPolicy = new Policy(polNum, provName, firstName, lastName, age, smokerStatus, height, weight);
+      Policy newPolicy = new Policy(polNum, provName, firstName, lastName, age, smokerStatus, height, weight); 
+
+      //Sums smokers and non-smokers
+      if (smokerStatus.equalsIgnoreCase("smoker")) {
+         totalSmokers += 1;
+      } else if(smokerStatus.equalsIgnoreCase("non-smoker")) {
+         totalNonSmokers += 1;
+      }
 
       //Add object to ArrayList
       listOfPolicies.add(newPolicy);
@@ -136,7 +146,12 @@ public class Project_Dola_Y {
       System.out.println("Holder Smoker Status: " + listOfPolicies.get(i).getHolderSmokingStatus());
       System.out.println("Holder Height: " + listOfPolicies.get(i).getHolderHeight());
       System.out.println("Holder Weight : " + listOfPolicies.get(i).getHolderWeight());
+      System.out.printf("Holder BMI: %.2f \n", listOfPolicies.get(i).bmi(listOfPolicies.get(i).getHolderWeight(), listOfPolicies.get(i).getHolderHeight()));
+      System.out.printf("Policy Price: $%.2f \n", listOfPolicies.get(i).calcPrice());
       System.out.println();
+
+      System.out.println("Number of Smokers: " + totalSmokers);
+      System.out.println("Number of Non-Smokers: " + totalNonSmokers);
    }
 
     }
