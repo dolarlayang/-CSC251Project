@@ -8,16 +8,27 @@ public class Policy {
     private double holderHeight;
     private double holderWeight;
 
-    //Constructor
+    //Constructors
     public Policy() {
-        int polNum = policyNumber;
-        String provName = providerName;
-        String firstName = holderFirstName;
-        String lastName = holderLastName;
-        int age = holderAge;
-        String smokerStatus = holderSmokingStatus;
-        double height = holderHeight;
-        double weight = holderWeight;
+        policyNumber = 0;
+        providerName = "" ;
+        holderFirstName = "";
+        holderLastName = "";
+        holderAge = 0;
+        holderSmokingStatus = "";
+        holderHeight = 0.00;
+        holderWeight = 0.00;
+    }
+
+    public Policy(int polNum, String provName, String firstName, String lastName, int age, String smokerStatus, double height, double weight) {
+        policyNumber = polNum;
+        providerName = provName ;
+        holderFirstName = firstName;
+        holderLastName = lastName;
+        holderAge = age;
+        holderSmokingStatus = smokerStatus;
+        holderHeight = height;
+        holderWeight = weight;
     }
 
     //Getters and Setters
