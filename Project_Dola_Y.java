@@ -150,9 +150,10 @@ public class Project_Dola_Y {
       System.out.printf("Policy Price: $%.2f \n", listOfPolicies.get(i).calcPrice());
       System.out.println();
 
+   }
+
       System.out.println("Number of Smokers: " + totalSmokers);
       System.out.println("Number of Non-Smokers: " + totalNonSmokers);
-   }
 
     }
     
