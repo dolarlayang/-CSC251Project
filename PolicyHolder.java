@@ -198,7 +198,7 @@ public class PolicyHolder {
         "\nPolicyholders Smoking Status: " + getHolderSmokingStatus() +
         "\nPolicyholders Height: " + getHolderHeight() +
         "\nPolicyholders Weight: " + getHolderWeight() +
-        "\nPolicyholders BMI: %.2f\n", bmi(getHolderHeight(), getHolderWeight()) +
-        "\nPolicy Price: %.2f", calcPrice());
+        "\nPolicyholders BMI: %.2f\n" +
+        "Policy Price: %.2f", bmi(getHolderHeight(), getHolderWeight()), calcPrice());
     }
 }
