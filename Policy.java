@@ -1,6 +1,20 @@
 public class Policy {
     private int policyNumber;
     private String providerName;
+    private static int totalPolicies = 0; //Track policies created
+
+    //Constructors
+
+    public Policy() {
+        policyNumber = 0;
+        providerName = "";
+    }
+
+    public Policy(int polNum, String provName) {
+        policyNumber = polNum;
+        providerName = provName;
+        totalPolicies++;
+    } 
 
     //Getters and Setters
     /**
