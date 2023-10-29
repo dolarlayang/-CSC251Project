@@ -8,8 +8,6 @@ There should be no duplication of fields or methods in the Policy and PolicyHold
  */
 
 public class PolicyHolder {
-    private int policyNumber;
-    private String providerName;
     private String holderFirstName;
     private String holderLastName;
     private int holderAge;
@@ -20,8 +18,6 @@ public class PolicyHolder {
         //Constructors
     //No Arg
     public PolicyHolder() {
-        policyNumber = 0;
-        providerName = "" ;
         holderFirstName = "";
         holderLastName = "";
         holderAge = 0;
@@ -31,9 +27,7 @@ public class PolicyHolder {
     }
 
     //Constructor w/ Args
-    public PolicyHolder(int polNum, String provName, String firstName, String lastName, int age, String smokerStatus, double height, double weight) {
-        policyNumber = polNum;
-        providerName = provName ;
+    public PolicyHolder(String firstName, String lastName, int age, String smokerStatus, double height, double weight) {
         holderFirstName = firstName;
         holderLastName = lastName;
         holderAge = age;
@@ -44,8 +38,6 @@ public class PolicyHolder {
 
     //copy Constructor method
     public PolicyHolder(PolicyHolder pol) { //Renamed for clarity
-        policyNumber = pol.policyNumber;
-        providerName = pol.providerName ;
         holderFirstName = pol.holderFirstName;
         holderLastName = pol.holderLastName;
         holderAge = pol.holderAge;
@@ -55,37 +47,6 @@ public class PolicyHolder {
     }
 
     //Getters and Setters
-    /**
-     * Retrieves the holder's policy number
-     * @return the Policy Number as an integer
-     */
-    public int getPolicyNumber() {
-        return policyNumber;
-    }
-
-    /**
-     * Sets the policy number
-     * @param policyNumber holds policy number value
-     */
-    public void setPolicyNumber(int policyNumber) {
-        this.policyNumber = policyNumber;
-    }
-
-    /**
-     * Retrieves value of the provider's name
-     * @return prodiderName
-     */
-    public String getProviderName() {
-        return providerName;
-    }
-
-    /**
-     * Set's the value of the providers name
-     * @param providerName holds a string value of the providers name
-     */
-    public void setProviderName(String providerName) {
-        this.providerName = providerName;
-    }
 
     /**
      * Retrieves a string value of the holder first name
@@ -229,21 +190,15 @@ public class PolicyHolder {
         return cost;
     }
 
-    /** 
-     * Displays all pertinant information regarding the policy and user.
-     */
-    public void displayInformation() {
-        System.out.println();
-        System.out.println("Policy Number: " + getPolicyNumber());
-        System.out.println("Provider Name: " + getProviderName());
-        System.out.println("Policyholders First Name: " + getHolderFirstName());
-        System.out.println("Policyholders Last Name: " + getHolderLastName());
-        System.out.println("Policyholders Age: " + getHolderAge());
-        System.out.println("Policyholders Smoking Status: " + getHolderSmokingStatus());
-        System.out.println("Policyholders Height: " + getHolderHeight());
-        System.out.println("Policyholders Weight: " + getHolderWeight());
-        System.out.printf("Policyholders BMI: %.2f\n", bmi(getHolderHeight(), getHolderWeight()));
-        System.out.printf("Policy Price: %.2f", calcPrice());
-
+    //toString Method to Display Holder's Information
+    public String toString() {
+        return String.format("\nPolicyholders First Name: " + getHolderFirstName() +
+        "\nPolicyholders Last Name: " + getHolderLastName() +
+        "\nPolicyholders Age: " + getHolderAge() +
+        "\nPolicyholders Smoking Status: " + getHolderSmokingStatus() +
+        "\nPolicyholders Height: " + getHolderHeight() +
+        "\nPolicyholders Weight: " + getHolderWeight() +
+        "\nPolicyholders BMI: %.2f\n", bmi(getHolderHeight(), getHolderWeight()) +
+        "\nPolicy Price: %.2f", calcPrice());
     }
 }
