@@ -2,6 +2,7 @@ public class Policy {
     private int policyNumber;
     private String providerName;
     private static int totalPolicies = 0; //Track policies created
+    private PolicyHolder holder;
 
     //Constructors
 
@@ -10,11 +11,18 @@ public class Policy {
         providerName = "";
     }
 
-    public Policy(int polNum, String provName) {
-        policyNumber = polNum;
-        providerName = provName;
+    //Using "this" to combat shadowing as I'm using the same name for my fields and args
+    public Policy(int policyNumber, String providerName, PolicyHolder user) {
+        this.policyNumber = policyNumber;
+        this.providerName = providerName;
+        this.holder = new PolicyHolder(user);
         totalPolicies++;
     } 
+
+    //copies Policy Holder information, creating a new memory address and not just a reference
+    public PolicyHolder copyPolicyHolder() {
+        return new PolicyHolder(holder);
+    }
 
     //Getters and Setters
     /**
@@ -49,11 +57,18 @@ public class Policy {
         this.providerName = providerName;
     }
 
+    /**
+     * Retrieves number of policies
+     * @return totalPolicies
+     */
+    public int getTotalPolicies() {
+        return totalPolicies;
+    }
 
     //toString Method
     public String toString() {
-        return String.format("\nPolicy Number: " + getPolicyNumber() +
-        "\nProvider Name: " + getProviderName());
+        return String.format("\nPolicy Number: " + policyNumber +
+        "\nProvider Name: " + providerName + holder);
     }
 
     //End of Policy Class File
